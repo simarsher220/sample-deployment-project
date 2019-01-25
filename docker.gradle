@@ -6,7 +6,7 @@ task buildInformation {
     def gitSha = "git rev-parse --short HEAD"
 
     ext.localRepository = "sample-deployment-project/$rootProject.name"
-    ext.remoteRepository = "${dockerRegistry}/${localRepository}"
+    ext.remoteRepository = "${localRepository}"
     ext.tag = gitSha.execute().text.trim()
 }
 

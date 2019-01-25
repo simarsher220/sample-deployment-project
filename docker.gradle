@@ -5,13 +5,14 @@ ext {
 task buildInformation {
     def gitSha = "git rev-parse --short HEAD"
 
-    ext.localRepository = "sample-deployment-project/$rootProject.name"
+    ext.localRepository = "$rootProject.name"
     ext.remoteRepository = "${dockerRegistry}/${localRepository}"
     ext.tag = gitSha.execute().text.trim()
 }
 
 task loginToDockerRegistry(type: Exec) {
-    commandLine "docker", "login", "-u", System.getenv("DOCKER_REGISTRY_USERNAME"), "-p", System.getenv("DOCKER_REGISTRY_PASSWORD"), dockerRegistry
+    System.out.print(System.getenv("DOCKER_REGISTRY_USERNAME"));
+    commandLine "docker", "login", "-u", System.getenv("DOCKER_REGISTRY_USERNAME"), "-p", System.getenv("DOCKER_REGISTRY_USERNAME"), dockerRegistry
 }
 
 task createDockerImage(type: Exec) {

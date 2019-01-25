@@ -1,5 +1,5 @@
 ext {
-    dockerRegistry = "hub.docker.com"
+
 }
 
 task buildInformation {
@@ -11,7 +11,7 @@ task buildInformation {
 }
 
 task loginToDockerRegistry(type: Exec) {
-    commandLine "docker", "login", "-u", System.getenv("DOCKER_REGISTRY_USERNAME"), "-p", System.getenv("DOCKER_REGISTRY_PASSWORD"), dockerRegistry
+    commandLine "docker", "login", "-u", System.getenv("DOCKER_REGISTRY_USERNAME"), "-p", System.getenv("DOCKER_REGISTRY_PASSWORD")
 }
 
 task createDockerImage(type: Exec) {

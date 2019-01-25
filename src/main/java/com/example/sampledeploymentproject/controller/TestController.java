@@ -11,7 +11,7 @@ public class TestController {
     @RequestMapping(value = "/output", method = RequestMethod.GET)
     public Output getOutput() {
         Output output = new Output();
-        output.setMessage("This is a test message");
+        output.setMessage("This is a test message!");
         return output;
     }
 

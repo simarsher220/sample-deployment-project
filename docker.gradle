@@ -11,7 +11,7 @@ task buildInformation {
 }
 
 task loginToDockerRegistry(type: Exec) {
-    commandLine "docker", "login", "-u", System.getenv("DOCKER_REGISTRY_USERNAME"), "-p", System.getenv("DOCKER_REGISTRY_PASSWORD"), dockerRegistry
+    commandLine "docker", "login", "-u", System.properties['DOCKER_REGISTRY_USERNAME'], "-p", System.properties['DOCKER_REGISTRY_PASSWORD'], dockerRegistry
 }
 
 task createDockerImage(type: Exec) {

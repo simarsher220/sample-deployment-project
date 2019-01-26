@@ -6,7 +6,7 @@ LABEL Name="Sample Test Service" \
 EXPOSE 9090
 
 RUN mkdir /container
-COPY build/libs/sample-project-deployment-0.0.1-SNAPSHOT.jar /container/sample-project.jar
+COPY build/libs/sample-deployment-project-0.0.1-SNAPSHOT.jar /container/sample-project.jar
 
 WORKDIR /container
 
